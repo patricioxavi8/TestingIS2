@@ -17,18 +17,36 @@ public class Correcion{
 	public String tipoTriangulo() {
 		
 		int a, b, c;
-		boolean c1, c2, c3, isTriangle;
+		String x,y,z;
+		boolean c1 = false, c2, c3, isTriangle;
+		boolean f1,f2,f3;
 		Scanner reader = new Scanner(System.in);
 //		Step 1: Get Input
 		do {
 			System.out.println("Enter 3 integers which are sides of a triangle");
 			System.out.print("a: ");
-			a = reader.nextInt();
+			x = reader.nextLine();
 			System.out.print("b: ");
-			b = reader.nextInt();
+			y = reader.nextLine();
 			System.out.print("c: ");
-			c = reader.nextInt();
+			z = reader.nextLine();
 
+			//verificando si son valores flotantes
+			f1=this.verificarEntero(x);
+			f2=this.verificarEntero(y);
+			f3=this.verificarEntero(z);
+			
+			if(!(f1 && f2 && f3)){
+				reader.close();
+				return "Valores no numericos no son permitidos";
+			}
+			
+			//casteo de string a entero
+			
+			a=Integer.parseInt(x);
+			b=Integer.parseInt(y);
+			c=Integer.parseInt(z);
+			
 			c1 = (1 <= a) && (a <= 200);
 			c2 = (1 <= b) && (b <= 200);
 			c3 = (1 <= c) && (c <= 200);
@@ -45,6 +63,7 @@ public class Correcion{
 				reader.close();
 				return "Value of c is not in the range of permitted values";
 			}
+		
 		} while (!(c1 && c2 && c3));
 		
 		reader.close();
@@ -72,6 +91,20 @@ public class Correcion{
 				return "Not a Triangle";
 			}
 			
+	}
+	
+	public boolean verificarEntero(String numero) {
+		
+		boolean resultado=true;
+		
+		for(int i=0;i<numero.length();i+=1) {
+			char caracter= numero.charAt(i);
+			if(!Character.isDigit(caracter)) {
+				resultado=false;
+			}
+		}
+		
+		return resultado;
 	}
 
 }
