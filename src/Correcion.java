@@ -7,29 +7,29 @@ public class Correcion{
 	public static void main(String[] args) {
 		
 		Correcion correc =  new Correcion();
-		String respuesta = correc.tipoTriangulo() ;
+		String respuesta = correc.tipoTriangulo("7","9","10") ;
 		System.out.print(respuesta);
 		
 	}
 	
-		
 	
-	public String tipoTriangulo() {
+	
+	public String tipoTriangulo(String x, String y, String z) {
 		
 		int a, b, c;
-		String x,y,z;
+		//String x,y,z;
 		boolean c1 = false, c2, c3, isTriangle;
 		boolean f1,f2,f3;
-		Scanner reader = new Scanner(System.in);
+		//Scanner reader = new Scanner("5");
 //		Step 1: Get Input
 		do {
-			System.out.println("Enter 3 integers which are sides of a triangle");
+			/*System.out.println("Enter 3 integers which are sides of a triangle");
 			System.out.print("a: ");
 			x = reader.nextLine();
 			System.out.print("b: ");
-			y = reader.nextLine();
+			y = "7";
 			System.out.print("c: ");
-			z = reader.nextLine();
+			z = "9";*/
 
 			//verificando si son valores flotantes
 			f1=this.verificarEntero(x);
@@ -37,7 +37,7 @@ public class Correcion{
 			f3=this.verificarEntero(z);
 			
 			if(!(f1 && f2 && f3)){
-				reader.close();
+				//reader.close();
 				return "Valores no numericos no son permitidos";
 			}
 			
@@ -52,21 +52,21 @@ public class Correcion{
 			c3 = (1 <= c) && (c <= 200);
 
 			if (!c1) {
-				reader.close();
+				
 				return "Value of a is not in the range of permitted values";
 			}
 			if (!c2) {
-				reader.close();
+				
 				return "Value of b is not in the range of permitted values";
 			}
 			if (!c3) {
-				reader.close();
+				
 				return "Value of c is not in the range of permitted values";
 			}
 		
 		} while (!(c1 && c2 && c3));
 		
-		reader.close();
+		
 		
 		//	Step 2: Is A Triangle?
 			if ((a < b + c) && (b < a + c) && (c < a + b)) {
